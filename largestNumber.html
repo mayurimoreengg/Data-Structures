@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+<head>
+	<title> Largest Number </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<hr>
+		<h4>Find Largest Number from given comma seperated numbers</h4>
+		<input type="text" id="arrInput" class="form-control">
+		<button onclick="findMax()" class="btn btn-primary" style="margin-top: 10px">Find</button>
+		<hr>
+		<p id="maxDiv" style="display: none">
+			Max of given Array is : <span id="maxValue"></span>
+		</p>
+	</div>
+
+
+	<script type="text/javascript">
+		// var arr = [2,65,456,34534,687,567568,878,989,676,35234,2365437578,986574543,32433]
+		function largestNumber(arr){
+			arrLen = arr.length;
+			if(arrLen == 0)
+				return false;
+			else{
+				var max  = parseFloat(arr[0]);
+				for(var i=1;i<arrLen;i++){
+					if(parseFloat(arr[i]) > max)
+						max = parseFloat(arr[i]);
+				}
+				return max;
+			}
+		}
+		function findMax(){
+			var arr1 = $('#arrInput')[0].value.replace(/ /g,'').split(',');
+			var maxNumber = largestNumber(arr1);
+			console.log(maxNumber);
+			if (maxNumber != NaN){
+				$('#maxDiv').css = "display:block";
+				$('#maxValue').html = maxNumber;
+			}
+
+		}
+		// var maxNum = largestNumber(arr);
+		// console.log("maxNum: ", maxNum);
+
+	</script>
+
+</body>
+</html>
