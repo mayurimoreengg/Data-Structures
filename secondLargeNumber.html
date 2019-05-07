@@ -1,0 +1,47 @@
+<!Doctype html>
+<html>
+<head>
+	<title> Second Large Number </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<hr>
+		<h4>Second Large Number</h4>
+		<input type="text" id="arrInput" class="form-control">
+		<button onclick="secondlargeNum()" class="btn btn-primary" style="margin-top: 10px">Find</button>
+		<hr>
+	</div>
+
+
+	<script type="text/javascript">
+		// var arr = [1, 2, 3, 4, 5, 6, 1, 13, 11, 23, 1, 7, 8, 9, 9, 0,10];
+		// console.log("Given array is: ",arr);
+		
+		function secondlargeNum(){
+			var arr = $('#arrInput')[0].value.replace(/ /g,'').split(',');
+			console.log("Given sorted array is: ",arr.sort(function(a,b){return a-b;}));
+			var largeNumber  = 0;
+			var secondLargeNumber = 0;
+			for(var i=0; i<arr.length; i++){
+				if(largeNumber < parseFloat(arr[i])){
+					secondLargeNumber = largeNumber;
+					largeNumber = arr[i];
+				}
+				else if(secondLargeNumber < parseFloat(arr[i])){
+					secondLargeNumber = arr[i];
+				}
+			}
+			console.log("The second large number is: ",secondLargeNumber);
+		}
+
+		// var maxNum = largestNumber(arr);
+		// console.log("maxNum: ", maxNum);
+
+	</script>
+
+</body>
+</html>
