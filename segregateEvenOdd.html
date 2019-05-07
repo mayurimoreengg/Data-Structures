@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+<head>
+	<title> Largest Number </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<hr>
+		<h4>Segregate even and odd numbers | set 3</h4>
+		<p>Give an array of integers, segregate even and odd numbers in the array. All the even numbers should be present first, and then the odd numbers.</p>
+		<input type="text" id="arrInput" class="form-control">
+		<button onclick="sortEvenOdd()" class="btn btn-primary" style="margin-top: 10px">Find</button>
+		<hr>
+	</div>
+
+
+	<script type="text/javascript">
+		// var arr = [1, 2, 3, 4, 5, 6, 1, 13, 11, 23, 1, 7, 8, 9, 9, 0,10];
+		function sortEvenOdd() {
+			var oddArr = [];
+			var evenArr = [];
+			var ansArr = [];
+			var arr = $('#arrInput')[0].value.replace(/ /g,'').split(',');
+			console.log("Given Array is: ",arr);
+			var arrLength = arr.length;
+			for(var i=0; i<arrLength; i++){
+				if(arr[i]%2 == 0){
+					evenArr.push(arr[i]);
+				}
+				else{
+					oddArr.push(arr[i]);
+				}
+			}
+			evenArr.sort(function(a,b){
+				return a-b;
+			});
+			oddArr.sort(function(a,b){
+				return a-b;
+			});
+			var ansArr = evenArr.concat(oddArr);
+			console.log("The Answer is: ", ansArr);
+
+		}
+		// var maxNum = largestNumber(arr);
+		// console.log("maxNum: ", maxNum);
+
+	</script>
+
+</body>
+</html>
